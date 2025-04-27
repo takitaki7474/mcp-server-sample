@@ -4,17 +4,19 @@ from mcp.server.fastmcp import FastMCP
 # Create an MCP server
 mcp = FastMCP("Demo")
 
-# Add an addition tool
+# add tool
 @mcp.tool()
 def add(a: int, b: int) -> int:
     """Add two numbers"""
     return a + b
 
+# greeting resource
 @mcp.resource("greeting://{name}")
 def get_greeting(name: str) -> str:
     """Get a personalized greeting"""
     return f"Hello, {name}!"
 
+# translation prompt
 @mcp.prompt()
 def translation_ja(txt: str) -> str:
     """Translating to Japanese"""
